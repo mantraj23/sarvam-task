@@ -1,0 +1,13 @@
+{
+  "name": "sarvam-survey-agent",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env first-call.js",
+    "dev": "node --env-file-if-exists=.env server.js"
+  },
+  "engines": { "node": "24.x" },
+  "dependencies": {
+    "sarvamai": "^1.1.12"
+  }
+}

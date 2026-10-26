@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f5f1">
+  <meta name="description" content="Conduct voice surveys in Indian languages with Sarvam AI.">
+  <title>Svara — Voice Survey Studio</title>
+  <link rel="stylesheet" href="/styles.css"><script type="module" src="/app.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a href="/" class="brand" aria-label="Svara home"><span class="brand-symbol">s</span>svara<span class="brand-dot">.</span></a>
+    <div class="workspace"><span class="workspace-icon">S</span><div>Survey workspace<small>Powered by Sarvam AI</small></div></div>
+    <div class="nav-caption">WORKSPACE</div>
+    <a class="nav-link active" href="#studio"><span>◉</span> Voice studio <span class="nav-arrow">↗</span></a>
+    <a class="nav-link" href="#survey-settings"><span>☷</span> Survey questions</a>
+    <a class="nav-link" href="#conversation"><span>≋</span> Session responses</a>
+    <div class="sidebar-bottom"><span class="mini-wave">▂ ▆ █ ▄ ▂</span><p>Every voice.<br>Every perspective.</p><small>Built for conversations across India.</small></div>
+  </aside>
+  <main id="studio">
+    <header class="topbar"><span>Workspace <span class="slash">/</span> <strong>Voice studio</strong></span><span class="top-tag"><i></i> Browser survey</span></header>
+    <section class="page-heading"><div><div class="eyebrow">LISTEN BETTER. LEARN MORE.</div><h1>A little conversation.<br><span>A lot of understanding.</span></h1><p>Meet your customers in their language. Turn spoken feedback<br class="desktop-break"> into a survey that feels human.</p></div><div class="heading-note"><span>नमस्ते</span><span>வணக்கம்</span><span>నమస్కారం</span><small>11 languages. One conversation.</small></div></section>
+    <div class="studio-grid">
+      <section class="panel profile-panel" aria-labelledby="profile-heading">
+        <div class="panel-heading"><span class="step">01</span><h2 id="profile-heading">Set the context</h2></div>
+        <p class="muted">A familiar voice starts with the right language.</p>
+        <label for="customer">Customer name <span class="optional">optional</span></label><input id="customer" placeholder="e.g. Ananya Sharma" maxlength="100" autocomplete="name">
+        <label for="region">Customer region</label><select id="region"></select>
+        <label for="language">Preferred language</label><select id="language"><option value="auto">Use regional preference</option></select>
+        <div class="language-card"><span class="language-glyph" id="language-glyph">Aa</span><div><strong id="resolved-language">English</strong><small id="language-source">Based on customer region</small></div><span class="language-check">✓</span></div>
+        <p class="profile-note">A profile preference overrides the region. Customers can choose their own language before starting.</p>
+        <details id="survey-settings"><summary>Customize survey questions <span>＋</span></summary><label for="questions">One question per line</label><textarea id="questions" rows="6" maxlength="10000"></textarea><p class="field-note">Write custom questions in the selected language. Changing language restores the translated starter survey. Up to 10 questions, 1,000 characters each.</p></details>
+      </section>
+      <section class="panel voice-panel" aria-labelledby="agent-heading">
+        <div class="voice-panel-top"><div class="panel-heading"><span class="step">02</span><h2 id="agent-heading">Have a conversation</h2></div><span class="status-pill" id="status-pill">Ready when you are</span></div>
+        <div class="agent-stage" id="agent-stage"><div class="orb-ring"><div class="orb"><div class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div><span class="agent-label">YOUR SURVEY COMPANION</span><h3 id="stage-title">Good feedback starts<br>with being heard.</h3><p id="stage-description">Three thoughtful questions. Your own words.<br>Let’s make this a conversation.</p><button id="start" class="button primary">Start voice survey <span>↗</span></button><p class="privacy-note">Your mic is only on when you tap Record.<br>Audio is sent to Sarvam for transcription.</p></div>
+        <div class="session" id="session" hidden><div class="question-topline"><span id="question-count">QUESTION 1 OF 3</span><button id="replay" class="text-button">↻ Play question</button></div><div class="progress-track"><div id="progress"></div></div><h3 id="current-question"></h3><audio id="playback" controls hidden></audio><div class="answer-box"><div class="answer-box-top"><label for="answer">YOUR ANSWER</label><span id="recording-time"></span></div><textarea id="answer" rows="3" maxlength="5000" placeholder="Record your answer, or type it here…"></textarea></div><div class="session-actions"><button id="record" class="button record-button"><span>●</span> Record answer</button><button id="next" class="button primary" disabled>Save & continue <span>→</span></button></div><p class="field-note">Record up to 25 seconds. Review or edit the transcript before continuing.</p></div>
+        <div id="completion" class="completion" hidden><div class="complete-icon">✓</div><div class="eyebrow">SURVEY COMPLETE</div><h3>Every answer matters.<br>Thank you for yours.</h3><p>Your responses are ready to review and download.</p><button id="download" class="button primary">Download responses <span>↓</span></button></div>
+        <p id="notice" class="notice" role="status" aria-live="polite" hidden></p><div class="voice-footer"><span><i></i> Sarvam voice engine</span><span id="session-language">English · en-IN</span></div>
+      </section>
+    </div>
+    <section class="panel transcript-panel" id="conversation"><div class="transcript-heading"><div><div class="eyebrow">THE CONVERSATION</div><h2>Words worth keeping.</h2></div><button id="reset" class="text-button">↻ New session</button></div><div id="transcript" class="transcript"><div class="empty-state"><span>“</span><p>Your conversation will appear here.<small>Answers stay in this tab until you download or reset them.</small></p></div></div></section>
+    <footer class="page-footer"><span>Made for the many voices of India.</span><span>Speech by <strong>Sarvam AI ↗</strong></span></footer>
+  </main>
+</body>
+</html>
