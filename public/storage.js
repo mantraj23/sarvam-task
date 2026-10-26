@@ -10,7 +10,7 @@ function open() {
     };
     request.onsuccess = () => resolve(request.result);
     request.onerror = () => { database = null; reject(new Error("Browser storage is unavailable. Enable site storage to save surveys and recordings.")); };
-    request.onblocked = () => { database = null; reject(new Error("Close other Svara tabs and reload to finish opening storage.")); };
+    request.onblocked = () => { database = null; reject(new Error("Close other SurveySaarthi tabs and reload to finish opening storage.")); };
   });
   return database;
 }

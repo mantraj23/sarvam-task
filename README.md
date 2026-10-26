@@ -1,4 +1,4 @@
-# Svara survey admin
+# SurveySaarthi survey admin
 
 An admin workspace for small businesses to create, test, and review short voice surveys. Plain JavaScript, Node.js, and the Sarvam SDK; no frontend framework or extra dependencies.
 
