@@ -19,3 +19,9 @@ export const regions = {
 export function resolveLanguage(preference, region) {
   return languages[preference] ? preference : regions[region] || "en-IN";
 }
+
+export function resolveSurveyLanguage(preference, region, surveyLanguage = "en-IN") {
+  if (Object.hasOwn(languages, preference)) return preference;
+  if (region && region !== "All India / unspecified" && region !== "Other region" && Object.hasOwn(regions, region)) return regions[region];
+  return Object.hasOwn(languages, surveyLanguage) ? surveyLanguage : "en-IN";
+}

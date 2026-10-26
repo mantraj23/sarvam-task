@@ -1,46 +1,70 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#f6f5f1">
-  <meta name="description" content="Conduct voice surveys in Indian languages with Sarvam AI.">
-  <title>Svara — Voice Survey Studio</title>
-  <link rel="stylesheet" href="/styles.css"><script type="module" src="/app.js"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f6f5f1"><meta name="description" content="Create, test, and review multilingual voice surveys for your business.">
+<title>Svara — Survey Admin</title><link rel="stylesheet" href="/styles.css"><script type="module" src="/app.js"></script>
 </head>
 <body>
-  <aside class="sidebar">
-    <a href="/" class="brand" aria-label="Svara home"><span class="brand-symbol">s</span>svara<span class="brand-dot">.</span></a>
-    <div class="workspace"><span class="workspace-icon">S</span><div>Survey workspace<small>Powered by Sarvam AI</small></div></div>
-    <div class="nav-caption">WORKSPACE</div>
-    <a class="nav-link active" href="#studio"><span>◉</span> Voice studio <span class="nav-arrow">↗</span></a>
-    <a class="nav-link" href="#survey-settings"><span>☷</span> Survey questions</a>
-    <a class="nav-link" href="#conversation"><span>≋</span> Session responses</a>
-    <div class="sidebar-bottom"><span class="mini-wave">▂ ▆ █ ▄ ▂</span><p>Every voice.<br>Every perspective.</p><small>Built for conversations across India.</small></div>
-  </aside>
-  <main id="studio">
-    <header class="topbar"><span>Workspace <span class="slash">/</span> <strong>Voice studio</strong></span><span class="top-tag"><i></i> Browser survey</span></header>
-    <section class="page-heading"><div><div class="eyebrow">LISTEN BETTER. LEARN MORE.</div><h1>A little conversation.<br><span>A lot of understanding.</span></h1><p>Meet your customers in their language. Turn spoken feedback<br class="desktop-break"> into a survey that feels human.</p></div><div class="heading-note"><span>नमस्ते</span><span>வணக்கம்</span><span>నమస్కారం</span><small>11 languages. One conversation.</small></div></section>
-    <div class="studio-grid">
-      <section class="panel profile-panel" aria-labelledby="profile-heading">
-        <div class="panel-heading"><span class="step">01</span><h2 id="profile-heading">Set the context</h2></div>
-        <p class="muted">A familiar voice starts with the right language.</p>
-        <label for="customer">Customer name <span class="optional">optional</span></label><input id="customer" placeholder="e.g. Ananya Sharma" maxlength="100" autocomplete="name">
-        <label for="region">Customer region</label><select id="region"></select>
-        <label for="language">Preferred language</label><select id="language"><option value="auto">Use regional preference</option></select>
-        <div class="language-card"><span class="language-glyph" id="language-glyph">Aa</span><div><strong id="resolved-language">English</strong><small id="language-source">Based on customer region</small></div><span class="language-check">✓</span></div>
-        <p class="profile-note">A profile preference overrides the region. Customers can choose their own language before starting.</p>
-        <details id="survey-settings"><summary>Customize survey questions <span>＋</span></summary><label for="questions">One question per line</label><textarea id="questions" rows="6" maxlength="10000"></textarea><p class="field-note">Write custom questions in the selected language. Changing language restores the translated starter survey. Up to 10 questions, 1,000 characters each.</p></details>
-      </section>
-      <section class="panel voice-panel" aria-labelledby="agent-heading">
-        <div class="voice-panel-top"><div class="panel-heading"><span class="step">02</span><h2 id="agent-heading">Have a conversation</h2></div><span class="status-pill" id="status-pill">Ready when you are</span></div>
-        <div class="agent-stage" id="agent-stage"><div class="orb-ring"><div class="orb"><div class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div><span class="agent-label">YOUR SURVEY COMPANION</span><h3 id="stage-title">Good feedback starts<br>with being heard.</h3><p id="stage-description">Three thoughtful questions. Your own words.<br>Let’s make this a conversation.</p><button id="start" class="button primary">Start voice survey <span>↗</span></button><p class="privacy-note">Your mic is only on when you tap Record.<br>Audio is sent to Sarvam for transcription.</p></div>
-        <div class="session" id="session" hidden><div class="question-topline"><span id="question-count">QUESTION 1 OF 3</span><button id="replay" class="text-button">↻ Play question</button></div><div class="progress-track"><div id="progress"></div></div><h3 id="current-question"></h3><audio id="playback" controls hidden></audio><div class="answer-box"><div class="answer-box-top"><label for="answer">YOUR ANSWER</label><span id="recording-time"></span></div><textarea id="answer" rows="3" maxlength="5000" placeholder="Record your answer, or type it here…"></textarea></div><div class="session-actions"><button id="record" class="button record-button"><span>●</span> Record answer</button><button id="next" class="button primary" disabled>Save & continue <span>→</span></button></div><p class="field-note">Record up to 25 seconds. Review or edit the transcript before continuing.</p></div>
-        <div id="completion" class="completion" hidden><div class="complete-icon">✓</div><div class="eyebrow">SURVEY COMPLETE</div><h3>Every answer matters.<br>Thank you for yours.</h3><p>Your responses are ready to review and download.</p><button id="download" class="button primary">Download responses <span>↓</span></button></div>
-        <p id="notice" class="notice" role="status" aria-live="polite" hidden></p><div class="voice-footer"><span><i></i> Sarvam voice engine</span><span id="session-language">English · en-IN</span></div>
-      </section>
-    </div>
-    <section class="panel transcript-panel" id="conversation"><div class="transcript-heading"><div><div class="eyebrow">THE CONVERSATION</div><h2>Words worth keeping.</h2></div><button id="reset" class="text-button">↻ New session</button></div><div id="transcript" class="transcript"><div class="empty-state"><span>“</span><p>Your conversation will appear here.<small>Answers stay in this tab until you download or reset them.</small></p></div></div></section>
-    <footer class="page-footer"><span>Made for the many voices of India.</span><span>Speech by <strong>Sarvam AI ↗</strong></span></footer>
-  </main>
+<aside class="sidebar">
+<a href="/" class="brand" aria-label="Svara admin home"><span class="brand-symbol">s</span>svara<span class="brand-dot">.</span></a>
+<div class="workspace"><span class="workspace-icon">S</span><div>Business workspace<small>Survey administration</small></div></div>
+<div class="nav-caption">WORKSPACE</div>
+<nav aria-label="Admin navigation">
+<button class="nav-link active" data-view="builder" aria-current="page"><span>▦</span> Survey builder <span class="nav-arrow">↗</span></button>
+<button class="nav-link" data-view="test"><span>◉</span> Test your agent</button>
+<button class="nav-link" data-view="responses"><span>≋</span> Responses <span class="nav-count" id="nav-response-count">0</span></button>
+</nav>
+<div class="sidebar-bottom"><span class="mini-wave">▂ ▆ █ ▄ ▂</span><p>Small business.<br>Meaningful feedback.</p><small>Powered by Sarvam AI</small></div>
+</aside>
+<main>
+<header class="topbar"><span>Workspace <span class="slash">/</span> <strong id="breadcrumb">Survey builder</strong></span><span class="top-tag">Admin workspace</span></header>
+<div class="page-heading"><div><div class="eyebrow">YOUR CUSTOMERS. THEIR OWN WORDS.</div><h1 id="page-title">Better questions.<br><span>Closer to your customers.</span></h1><p id="page-description">Build a short survey, try your voice agent, and review every answer.</p></div><div class="workspace-status"><span class="storage-dot"></span><span>Saved on this device<small>Surveys, answers & recordings</small></span></div></div>
+<div class="workflow" aria-label="Survey workflow"><button data-view="builder" class="workflow-step active"><span>01</span> Create survey</button><span class="workflow-line"></span><button data-view="test" class="workflow-step"><span>02</span> Test the experience</button><span class="workflow-line"></span><button data-view="responses" class="workflow-step"><span>03</span> Review answers</button></div>
+<p id="notice" class="notice" role="status" aria-live="polite" hidden></p>
+<section id="builder-view" class="view" aria-labelledby="builder-heading">
+<div class="builder-grid">
+<form id="builder-form" class="builder-main">
+<section class="panel survey-details"><div class="section-heading"><div><span class="eyebrow">THE BASICS</span><h2 id="builder-heading">Give your survey a name</h2></div><span class="tag">New survey</span></div><div class="details-grid"><div><label for="survey-title">Survey name</label><input id="survey-title" required maxlength="100" placeholder="e.g. After-visit feedback" value="Customer experience survey"></div><div><label for="survey-language">Default survey language</label><select id="survey-language"></select></div></div><p class="field-note">Type your questions in English or another language. The agent translates questions and answer options into the selected language before speaking.</p></section>
+<div class="questions-heading"><h2>Your questions <span class="question-count" id="draft-count">2 / 3</span></h2><p>Keep it short. Two or three good questions go a long way.</p></div>
+<div id="question-editor" class="question-editor"></div>
+<button type="button" id="add-question" class="add-question">＋ Add a third question</button>
+<div class="builder-actions"><button type="button" id="preview-translation" class="button secondary">Preview translation</button><button type="submit" id="create-survey" class="button primary">Create survey <span>→</span></button></div>
+<section id="translation-preview" class="panel translation-preview" hidden aria-live="polite"><span class="eyebrow">TRANSLATED PREVIEW</span><h2 id="translation-heading"></h2><p class="field-note">This is what your agent will ask. Your original questions stay editable above.</p><div id="translation-questions"></div></section>
+</form>
+<aside class="builder-aside">
+<section class="panel guide-panel"><span class="guide-icon">✳</span><div class="eyebrow">A SURVEY THAT FEELS HUMAN</div><h2>Ask less.<br>Understand more.</h2><p>Let your agent do the asking. Give customers the space to answer in their own language.</p><div class="guide-item"><span>≋</span><div><strong>Open-ended</strong><small>Hear the story behind the score.</small></div></div><div class="guide-item"><span>☷</span><div><strong>Multiple choice</strong><small>Offer a few clear options.</small></div></div><div class="guide-item"><span>☆</span><div><strong>CSAT rating</strong><small>A satisfaction score, from 1–5.</small></div></div></section>
+<section class="panel saved-panel"><div class="section-heading"><h2>Saved surveys</h2><span id="survey-total" class="tag">0</span></div><div id="saved-surveys"><p class="field-note">Your surveys will appear here after creation.</p></div></section>
+</aside>
+</div>
+</section>
+<section id="test-view" class="view" hidden aria-labelledby="test-heading">
+<div id="test-empty" class="panel empty-page"><span>◉</span><h2>Create your first survey</h2><p>Once you’ve added your questions, test the exact survey here.</p><button class="button primary" data-view="builder">Go to survey builder →</button></div>
+<div id="test-content" hidden>
+<div class="survey-toolbar"><div><span class="eyebrow">TEST YOUR SURVEY</span><h2 id="test-heading">Customer experience survey</h2></div><div><label for="test-survey" class="sr-only">Choose survey to test</label><select id="test-survey"></select></div></div>
+<div class="studio-grid">
+<section class="panel profile-panel"><div class="panel-heading"><span class="step">01</span><h2>Test customer profile</h2></div><p class="muted">Try the agent as one of your customers.</p><label for="customer">Customer / tester name</label><input id="customer" placeholder="e.g. Ananya Sharma" maxlength="100"><label for="region">Customer region</label><select id="region"></select><label for="language">Preferred language</label><select id="language"><option value="auto">Use regional preference</option></select><div class="language-card"><span class="language-glyph">अ</span><div><strong id="resolved-language">English</strong><small id="language-source">Suggested from region</small></div><span class="language-check">✓</span></div><p class="profile-note">A customer’s language preference takes priority over the regional suggestion.</p><div class="profile-summary"><span id="test-question-count">2 questions</span><span>Test session</span></div><p class="field-note">Test answers are labeled as tests in Responses. The microphone only turns on when you tap Record.</p></section>
+<section class="panel voice-panel">
+<div class="voice-panel-top"><div class="panel-heading"><span class="step">02</span><h2>Try your voice agent</h2></div><span id="status-pill" class="status-pill">Ready to test</span></div>
+<div id="agent-stage" class="agent-stage"><div class="orb-ring"><div class="orb"><div class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div><span class="agent-label">YOUR SURVEY, IN CONVERSATION</span><h3>Take it for<br>a conversation.</h3><p>Listen to each question. Answer naturally.<br>See exactly what your agent records.</p><button id="start" class="button primary">Start voice test <span>↗</span></button><p class="privacy-note">Audio is sent to Sarvam for transcription.<br>Test answers and recordings are saved on this device.</p></div>
+<div id="session" class="session" hidden>
+<div class="question-topline"><span id="question-count"></span><button id="replay" class="text-button">↻ Play question</button></div><div class="progress-track"><div id="progress"></div></div><span id="answer-type" class="answer-type"></span><h3 id="current-question"></h3><audio id="playback" controls hidden></audio>
+<div id="structured-options" class="structured-options"></div><div id="csat-labels" class="csat-labels" hidden><span>Very dissatisfied</span><span>Very satisfied</span></div>
+<div class="answer-box"><div class="answer-box-top"><label for="answer" id="answer-label">YOUR ANSWER</label><span id="recording-time"></span></div><textarea id="answer" rows="3" maxlength="5000" placeholder="Record an answer, or type here…"></textarea><audio id="answer-playback" controls hidden></audio></div>
+<div class="session-actions"><button id="record" class="button record-button">● Record answer</button><button id="next" class="button primary" disabled>Save & continue →</button></div><p class="field-note" id="answer-help">Record up to 25 seconds. Review the transcript before saving.</p><button id="stop-test" class="text-button stop-test">End this test</button>
+</div>
+<div id="completion" class="completion" hidden><div class="complete-icon">✓</div><span class="eyebrow">TEST COMPLETE</span><h3>Your agent asked.<br>Your answers are saved.</h3><p>Review the transcript, choices, scores, and voice recordings.</p><button id="view-latest" class="button primary">View recorded answers →</button><button id="test-again" class="text-button">Run another test</button></div>
+<div class="voice-footer"><span><i></i> Powered by Sarvam AI</span><span id="session-language">English · en-IN</span></div>
+</section>
+</div>
+</div>
+</section>
+<section id="responses-view" class="view" hidden aria-labelledby="responses-heading">
+<div class="survey-toolbar"><div><span class="eyebrow">THE FEEDBACK, ALL TOGETHER</span><h2 id="responses-heading">Recorded answers</h2></div><div><label class="sr-only" for="response-survey">Filter responses by survey</label><select id="response-survey"><option value="all">All surveys</option></select></div></div>
+<div class="metrics"><div class="panel metric"><span>Saved surveys</span><strong id="metric-surveys">0</strong></div><div class="panel metric"><span>Test sessions</span><strong id="metric-runs">0</strong></div><div class="panel metric"><span>Recorded answers</span><strong id="metric-answers">0</strong></div><div class="panel metric"><span>Average CSAT</span><strong id="metric-csat">—</strong></div></div>
+<div class="responses-grid"><section class="panel runs-panel"><div class="section-heading"><h2>Test sessions</h2><span class="tag" id="runs-count">0</span></div><div id="runs-list"></div></section><section class="panel response-detail"><div id="response-detail"><div class="empty-state"><span>“</span><p>No answers yet.<small>Create a survey and complete a test to see the results here.</small></p></div></div></section></div>
+</section>
+<footer class="page-footer"><span>Admin preview · Data is stored in this browser, on this device.</span><span>Made for the many voices of India.</span></footer>
+</main>
 </body>
 </html>

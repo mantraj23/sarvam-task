@@ -2,9 +2,10 @@ import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import speak from "./api/speak.js";
 import transcribe from "./api/transcribe.js";
+import prepare from "./api/prepare.js";
 
-const routes = { "/api/speak": speak, "/api/transcribe": transcribe };
-const files = { "/": ["index.html", "text/html"], "/app.js": ["app.js", "text/javascript"], "/survey.js": ["survey.js", "text/javascript"], "/styles.css": ["styles.css", "text/css"] };
+const routes = { "/api/speak": speak, "/api/transcribe": transcribe, "/api/prepare": prepare };
+const files = { "/": ["index.html", "text/html"], "/app.js": ["app.js", "text/javascript"], "/model.js": ["model.js", "text/javascript"], "/storage.js": ["storage.js", "text/javascript"], "/survey.js": ["survey.js", "text/javascript"], "/styles.css": ["styles.css", "text/css"] };
 
 createServer(async (req, res) => {
   const path = new URL(req.url, "http://localhost").pathname;
@@ -28,4 +29,11 @@ createServer(async (req, res) => {
     res.writeHead(200, { "Content-Type": `${mime}; charset=utf-8` });
     res.end(content);
   } catch { res.writeHead(500); res.end("Unable to serve this request."); }
-}).listen(3000, "127.0.0.1", () => console.log("Survey studio: http://localhost:3000"));
+}).on("error", (error) => {
+  console.error(error.code === "EADDRINUSE"
+    ? "The development port is already in use. Open the existing server or stop it before restarting."
+    : "Could not start the development server.");
+  process.exitCode = 1;
+}).listen(Number(process.env.PORT) || 3000, "127.0.0.1", function () {
+  console.log(`Survey admin: http://localhost:${this.address().port}`);
+});
